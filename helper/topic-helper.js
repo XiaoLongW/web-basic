@@ -4,7 +4,7 @@ function TopicHelper(){
 
 }
 
-TopicHelper.prototype.getTopics = function(questions,body){
+TopicHelper.prototype.getTopics = function(questions, req){
   var fillIn = [];
   var single = [];
   var multi = [];
@@ -14,22 +14,34 @@ TopicHelper.prototype.getTopics = function(questions,body){
   var factory = new Factory();
 
   questions.forEach(function(question){
-    if(question.type = 'fillIn'){
-      fillIn.push(question,body);
+    if(question.type === 'fillIn'){
+      fillIn.push(factory.create(question,req));
     }
-    else if (question.type = 'single') {
-      single.push(question,body);
+    else if (question.type === 'single') {
+      single.push(factory.create(question,req));
     }
-    else if (question.type = 'multi') {
-      multi.push(question,body);
+    else if (question.type === 'multi') {
+      multi.push(factory.create(question,req));
     }
-    else if (question.type = 'judge') {
-      judge.push(question,body);
+    else if (question.type === 'judge') {
+      judge.push(factory.create(question,req));
     }
-    else if (question.type = 'short') {
-      short.push(question,body);
+    else if (question.type === 'short') {
+      short.push(factory.create(question,req));
     }
   });
 
-  return {"fillIn":fillIn, "single":single, "multi":multi, "judge":judge, "short":short}
+  return {"fillIn":fillIn, "single":single, "multi":multi, "judge":judge, "short":short};
 }
+
+TopicHelper.prototype.getTotalScore = function(topics){
+  var score = 0;
+  for(var questions in topics){
+    topics[questions].forEach(function(oneQuestion){
+      score += oneQuestion.getScore();
+    });
+  }
+  return score;
+}
+
+module.exports = TopicHelper;

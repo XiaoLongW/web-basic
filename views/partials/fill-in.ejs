@@ -5,7 +5,7 @@
       <ul>
         <label><%= indexX+1 %>.<%= oneFillIn.title %>&nbsp&nbsp&nbsp&nbsp</label>
         <% oneFillIn.answer.forEach(function(oneAnswer, indexY){ %>
-          <li><input type="text" name="tk<%= indexY %>"/></li>
+          <li><input type="text" name="tk<%= indexX %>" value=<%= (typeof(oneFillIn.inputs)=="string")?oneFillIn.inputs:oneFillIn.inputs[indexY] %> ></li>
         <% }); %>
       </ul>
     <% }); %>

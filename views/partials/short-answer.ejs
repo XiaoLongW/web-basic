@@ -4,7 +4,7 @@
     <% topic.short.forEach(function(oneShort, indexX){ %>
       <ul>
         <li><label><%= indexX+1 %>.<%= oneShort.title %>&nbsp&nbsp&nbsp&nbsp</label></li>
-        <li><input type="text" name="jd<%= indexX %>"/></li>
+        <li><input type="text" name="jd<%= indexX %>" value=<%= oneShort.inputs %>></li>
       </ul>
     <% }); %>
   </div>

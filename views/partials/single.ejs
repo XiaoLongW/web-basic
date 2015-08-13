@@ -5,7 +5,8 @@
       <ul>
         <label><%= indexX+1 %>.<%= oneSingle.title %></label>
         <% for(var choice in oneSingle.option){ %>
-          <li ><input type="radio" name="xz<%= indexX %>" /><label >(<%= choice %>)<%= oneSingle.option[choice] %></label></li>
+          <% var isChecked = (oneSingle.inputs==choice)?"checked":"" %>
+          <li ><input type="radio" name="xz<%= indexX %>" <%= isChecked %> value=<%= choice %>><label >(<%= choice %>)<%= oneSingle.option[choice] %></label></li>
         <% } %>
       </ul>
     <% }); %>

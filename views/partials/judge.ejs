@@ -5,7 +5,8 @@
             <ul>
               <label><%= indexX+1 %>.<%= oneJudge.title %></label>
               <% for(var choice in oneJudge.option){ %>
-                <li ><input type="radio" name="pd<%= indexX %>" /><label >(<%= choice %>)<%= oneJudge.option[choice] %></label></li>
+                <% var isChecked = (oneJudge.inputs==choice)?"checked":"" %>
+                <li ><input type="radio" name="pd<%= indexX %>" <%= isChecked %> value=<%= choice %>><label >(<%= choice %>)<%= oneJudge.option[choice] %></label></li>
               <% } %>
             </ul>
           <% }); %>
