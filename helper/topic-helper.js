@@ -1,5 +1,5 @@
 var Factory = require('../model/topic-factory.js');
-
+var TYPE =require('./type.js');
 function TopicHelper(){
 
 }
@@ -14,19 +14,19 @@ TopicHelper.prototype.getTopics = function(questions, req){
   var factory = new Factory();
 
   questions.forEach(function(question){
-    if(question.type === 'fillIn'){
+    if(question.type === TYPE.fillIn){
       fillIn.push(factory.create(question,req));
     }
-    else if (question.type === 'single') {
+    else if (question.type === TYPE.single) {
       single.push(factory.create(question,req));
     }
-    else if (question.type === 'multi') {
+    else if (question.type === TYPE.multi) {
       multi.push(factory.create(question,req));
     }
-    else if (question.type === 'judge') {
+    else if (question.type === TYPE.judge) {
       judge.push(factory.create(question,req));
     }
-    else if (question.type === 'short') {
+    else if (question.type === TYPE.short) {
       short.push(factory.create(question,req));
     }
   });
