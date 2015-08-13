@@ -1,4 +1,4 @@
-function Topic(question,req){
+function Topic(question, req){
   this.title = question.topic;
   this.option = question.choices || [];
   this.answer = question.answer;
@@ -6,7 +6,7 @@ function Topic(question,req){
   this.inputs = req.body[question.name] || [];
 }
 
-Topic.prototype.getScore = function(){
+Topic.prototype.getScore = function() {
 }
 
 module.exports = Topic;
