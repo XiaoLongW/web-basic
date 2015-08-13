@@ -1,19 +1,13 @@
 <section id="bodyDX" >
   <div><h2  >三&nbsp&nbsp&nbsp多选题</h2></div>
   <div>
-    <ul>
-      <label>1. 用例的粒度分为以下哪三种:</label>
-      <li><input type="checkbox" name="dx1"/><label>(A)概述级</label></li>
-      <li><input type="checkbox" name="dx1"/><label>(B)需求级</label></li>
-      <li><input type="checkbox" name="dx1"/><label>(C)用户目标级</label></li>
-      <li><input type="checkbox" name="dx1"/><label>(D)子功能级</label></li>
-    </ul>
-    <ul>
-      <label>2. 类图由以下哪三部分组成:</label>
-      <li><input type="checkbox" name="dx2"/><label >(A)名称(Name)</label></li>
-      <li><input type="checkbox" name="dx2"/><label >(B)属性(Attribute)</label></li>
-      <li><input type="checkbox" name="dx2"/><label >(C)操作(Operation)</label></li>
-      <li><input type="checkbox" name="dx2"/><label >(D)方法(Function)</label></li>
-    </ul>
+    <% topic.multi.forEach(function(oneMulti, indexX){ %>
+      <ul>
+        <label><%= indexX+1 %>.<%= oneMulti.title %></label>
+        <% for(var choice in oneMulti.option){ %>
+          <li ><input type="radio" name="xz<%= indexX %>" /><label >(<%= choice %>)<%= oneMulti.option[choice] %></label></li>
+        <% } %>
+      </ul>
+    <% }); %>
   </div>
 </section>
