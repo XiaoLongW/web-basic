@@ -1,14 +1,16 @@
-      <section id="bodyPD" >
-        <div><h2 >四&nbsp&nbsp&nbsp判断题</h2></div>
-        <div>
-          <% topic.judge.forEach(function(oneJudge, indexX){ %>
-            <ul>
-              <label><%= indexX+1 %>.<%= oneJudge.title %></label>
-              <% for(var choice in oneJudge.option){ %>
-                <% var isChecked = (oneJudge.inputs==choice)?"checked":"" %>
-                <li ><input type="radio" name="pd<%= indexX %>" <%= isChecked %> value=<%= choice %>><label >(<%= choice %>)<%= oneJudge.option[choice] %></label></li>
-              <% } %>
-            </ul>
-          <% }); %>
-        </div>
-      </section>
+<section id="bodyPD" class="container  well panel-primary">
+  <div class="panel-heading" style="background:black"><h2 class="panel-title">四&nbsp&nbsp&nbsp判断题</h2></div>
+  <div class="panel-body">
+    <ul class="list-unstyled">
+    <% topic.judge.forEach(function(oneJudge, indexX){ %>
+        <li >
+        <label><%= indexX+1 %>.<%= oneJudge.title %></label>
+        <% for(var choice in oneJudge.option){ %>
+          <% var isChecked = (oneJudge.inputs==choice)?"checked":"" %>
+          <input type="radio" name="pd<%= indexX %>" <%= isChecked %> value=<%= choice %>><label ><%= oneJudge.option[choice] %></label>
+        <% } %>
+        </li>
+    <% }); %>
+    </ul>
+  </div>
+</section>

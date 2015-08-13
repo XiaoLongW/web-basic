@@ -1,10 +1,10 @@
-<section id="bodyJD" >
-  <div><h2>四&nbsp&nbsp&nbsp简答题</h2></div>
-  <div>
+<section id="bodyJD" class="container  well panel-primary ">
+  <div class="panel-heading" style="background:black"><h2 class="panel-title">四&nbsp&nbsp&nbsp简答题</h2></div>
+  <div  class="panel-body ">
     <% topic.short.forEach(function(oneShort, indexX){ %>
-      <ul>
-        <li><label><%= indexX+1 %>.<%= oneShort.title %>&nbsp&nbsp&nbsp&nbsp</label></li>
-        <li><input type="text" name="jd<%= indexX %>" value=<%= oneShort.inputs %>></li>
+      <ul class="list-unstyled orm-group form-group-lg">
+        <li><label class="control-label"><%= indexX+1 %>.<%= oneShort.title %>&nbsp&nbsp&nbsp&nbsp</label></li>
+        <li class="controls "><input type="text" class="form-control" name="jd<%= indexX %>" value=<%= oneShort.inputs %>></li>
       </ul>
     <% }); %>
   </div>
