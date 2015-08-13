@@ -8,7 +8,12 @@ Controller.prototype.indexGet = function (req,res){
   var topicHelper = new TopicHelper();
   var topics = topicHelper.getTopics(questions, req);
   var score = '';
-  res.render('index', {'topic':topics,'scores':score});
+  res.render('index', {'topic':topics,
+                      'scores':score,
+                      'names':"",
+                      'classs':"",
+                      'ids':""
+                      });
 }
 
 Controller.prototype.indexPost = function (req,res){
@@ -16,7 +21,12 @@ Controller.prototype.indexPost = function (req,res){
   var topicHelper = new TopicHelper();
   var topics = topicHelper.getTopics(questions, req);
   var score = topicHelper.getTotalScore(topics);
-  res.render('index', {'topic':topics,'scores':score});
+  res.render('index', {'topic':topics,
+                       'scores':score,
+                       'names':req.body.name,
+                       'classs':req.body.class,
+                       'ids':req.body.id
+                       });
 }
 
 
