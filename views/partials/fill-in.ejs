@@ -1,15 +1,13 @@
 <section id="bodyTK" >
   <div><h2  >一&nbsp&nbsp&nbsp填空题</h2></div>
   <div>
-    <ul>
-      <label>1.UML的中文全称是:&nbsp&nbsp&nbsp&nbsp</label>
-      <li ><input type="text" name="tk1"/></li>
-    </ul>
-    <ul >
-      <label for="tk2-1" >2.对象最突出的特征是:</label>
-      <li ><input type="text" name="tk2" /></li>
-      <li ><input type="text" name="tk2" /></li>
-      <li ><input type="text" name="tk2" /></li>
-    </ul>
+    <% topic.fillIn.forEach(function(oneFillIn, indexX){ %>
+      <ul>
+        <label><%= indexX+1 %>.<%= oneFillIn.title %>&nbsp&nbsp&nbsp&nbsp</label>
+        <% oneFillIn.answer.forEach(function(oneAnswer, indexY){ %>
+          <li><input type="text" name="tk<%= indexY %>"/></li>
+        <% }); %>
+      </ul>
+    <% }); %>
   </div>
 </section>
