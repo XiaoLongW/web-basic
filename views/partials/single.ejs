@@ -1,19 +1,13 @@
 <section id="bodyXZ" >
   <div><h2 >二&nbsp&nbsp&nbsp选择题</h2></div>
   <div>
-    <ul>
-      <label>1.UML 与软件工程的关系是:</label>
-      <li ><input type="radio" name="xz1" /><label >(A)UML就是软件工程</label></li>
-      <li ><input type="radio" name="xz1" /><label >(B)UML参与到软件工程中软件开发过程的几个阶段</label></li>
-      <li ><input type="radio" name="xz1" /><label >(C)UML与软件工程无关</label></li>
-      <li ><input type="radio" name="xz1" /><label >(D)UML是软件工程的一部分</label></i>
-    </ul>
-    <ul>
-      <label>2.Java 语言支持:</label>
-      <li ><input type="radio" name="xz2" /><label >(A)单继承</label></li>
-      <li ><input type="radio" name="xz2" /><label >(B)多继承</label></li>
-      <li ><input type="radio" name="xz2" /><label >(C)单继承和多继承都支持</label></li>
-      <li ><input type="radio" name="xz2" /><label >(D)单继承和多继承都不支持</label></li>
-    </ul>
+    <% topic.single.forEach(function(oneSingle, indexX){ %>
+      <ul>
+        <label><%= indexX+1 %>.<%= oneSingle.title %></label>
+        <% for(var choice in oneSingle.option){ %>
+          <li ><input type="radio" name="xz<%= indexX %>" /><label >(<%= choice %>)<%= oneSingle.option[choice] %></label></li>
+        <% } %>
+      </ul>
+    <% }); %>
   </div>
 </section>
