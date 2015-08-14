@@ -1,13 +1,13 @@
 <section id="bodyTK" class="container  well panel-primary ">
-  <div class="panel-heading" style="background:black"><h2  class="panel-title">一&nbsp&nbsp&nbsp填空题</h2></div>
+  <div class="panel-heading" ><h2  class="panel-title">一&nbsp;&nbsp;&nbsp;填空题</h2></div>
   <div class="panel-body ">
-    <% topic.fillIn.forEach(function(oneFillIn, indexX){ %>
+    <% topics.forEach(function(topic, indexX){ %>
       <ul class="list-unstyled list-group row">
-        <li class=" col-md-12"><label><%= indexX+1 %>.<%= oneFillIn.title %>&nbsp&nbsp&nbsp&nbsp</label></li>
-        <% oneFillIn.answer.forEach(function(oneAnswer, indexY){ %>
-          <li class=" col-md-3"><input type="text" class="form-control" name="tk<%= indexX %>" value=<%= (typeof(oneFillIn.inputs)=="string")?oneFillIn.inputs:oneFillIn.inputs[indexY] %> ></li>
+        <li class=" col-md-12"><label><%= indexX+1 %>.<%= topic.title %>&nbsp;&nbsp;&nbsp;&nbsp;</label></li>
+        <% topic.answer.forEach(function(oneAnswer, indexY){ %>
+          <li class=" col-md-3"><input type="text" class="form-control" name="tk<%= indexX %>" value=<%= (typeof(topic.inputs)=="string")?topic.inputs:topic.inputs[indexY] %> ></li>
         <% }); %>
       </ul>
-    <% }); %>
+    <% });%>
   </div>
 </section>

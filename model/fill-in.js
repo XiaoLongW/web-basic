@@ -1,8 +1,13 @@
-var Topic = require('./topic.js');
+'use strict';
+var Topic = require('./topic');
+var _ = require('lodash');
 
-function FillIn (question, req){
-  Topic.call(this, question, req);
+function FillIn (question){
+  Topic.call(this, question);
 }
+
+FillIn.prototype = Object.create(Topic.prototype);
+FillIn.prototype.constructor = FillIn;
 
 FillIn.prototype.getScore = function() {
   var score = 0;
@@ -21,6 +26,5 @@ FillIn.prototype.getScore = function() {
   }
   return score;
 }
-
 
 module.exports = FillIn;

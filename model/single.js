@@ -1,15 +1,11 @@
-var Topic = require('./topic.js');
+'use strict';
+var Topic = require('./topic');
 
-function Single (question, req){
-  Topic.call(this, question, req);
+function Single (question){
+  Topic.call(this, question);
 }
 
-Single.prototype.getScore = function() {
-  var score = 0;
-  if(this.answer == this.inputs){
-    score += this.score;
-  }
-  return score;
-}
+Single.prototype = Object.create(Topic.prototype);
+Single.prototype.constructor = Single;
 
 module.exports = Single;

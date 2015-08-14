@@ -1,12 +1,12 @@
 <section id="bodyDX" class="container well panel-primary">
-  <div class="panel-heading" style="background:black"><h2  class="panel-title">三&nbsp&nbsp&nbsp多选题</h2></div>
+  <div class="panel-heading" ><h2  class="panel-title">三&nbsp;&nbsp;&nbsp;多选题</h2></div>
   <div class="panel-body row">
-    <% topic.multi.forEach(function(oneMulti, indexX){ %>
+    <% topics.forEach(function(topic, indexX){ %>
       <ul class="list-unstyled list-group col-md-6 col-sm-12">
-        <label><%= indexX+1 %>.<%= oneMulti.title %></label>
-        <% for(var choice in oneMulti.option){ %>
-          <% var isChecked = (oneMulti.inputs.indexOf(choice)!=-1)?"checked":"" %>
-          <li class="list-group-item"><input type="checkbox" name="dx<%= indexX %>" <%= isChecked %> value=<%= choice %>><label >(<%= choice %>)<%= oneMulti.option[choice] %></label></li>
+        <label><%= indexX+1 %>.<%= topic.title %></label>
+        <% for(var choice in topic.option){ %>
+          <% var isChecked = (topic.inputs.indexOf(choice)!=-1)?"checked":"" %>
+          <li class="list-group-item checkbox"><input type="checkbox" name="dx<%= indexX %>" <%= isChecked %> value=<%= choice %>><label >(<%= choice %>)<%= topic.option[choice] %></label></li>
         <% } %>
       </ul>
     <% }); %>

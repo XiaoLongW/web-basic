@@ -1,47 +1,24 @@
-var Factory = require('../model/topic-factory.js');
-var TYPE =require('./type.js');
-function TopicHelper(){
+'use strict';
+var Factory = require('../model/topic-factory');
+var TYPE =require('./type');
 
+function TopicHelper(){
 }
 
-TopicHelper.prototype.getTopics = function(questions, req){
-  var fillIn = [];
-  var single = [];
-  var multi = [];
-  var judge = [];
-  var short = [];
-
+TopicHelper.prototype.getTopics = function(questions){
+  var topics = [];
   var factory = new Factory();
 
   questions.forEach(function(question){
-    if(question.type === TYPE.fillIn){
-      fillIn.push(factory.create(question,req));
-    }
-    else if (question.type === TYPE.single) {
-      single.push(factory.create(question,req));
-    }
-    else if (question.type === TYPE.multi) {
-      multi.push(factory.create(question,req));
-    }
-    else if (question.type === TYPE.judge) {
-      judge.push(factory.create(question,req));
-    }
-    else if (question.type === TYPE.short) {
-      short.push(factory.create(question,req));
-    }
+    topics.push(factory.create(question));
   });
-
-  return {"fillIn":fillIn, "single":single, "multi":multi, "judge":judge, "short":short};
+  return topics;
 }
 
-TopicHelper.prototype.getTotalScore = function(topics){
-  var score = 0;
-  for(var questions in topics){
-    topics[questions].forEach(function(oneQuestion){
-      score += oneQuestion.getScore();
-    });
-  }
-  return score;
+TopicHelper.prototype.setInputs = function(topics, inputs){
+  topics.forEach(function(topic){
+    topic.inputs = inputs[topic.name] || [];
+  });
 }
 
 module.exports = TopicHelper;

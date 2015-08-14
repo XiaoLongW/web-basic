@@ -1,12 +1,12 @@
 <section id="bodyXZ" class="container  well panel-primary ">
-  <div  class="panel-heading" style="background:black"><h2 class="panel-title">二&nbsp&nbsp&nbsp选择题</h2></div>
+  <div  class="panel-heading" ><h2 class="panel-title">二&nbsp;&nbsp;&nbsp;选择题</h2></div>
   <div class="panel-body row">
-    <% topic.single.forEach(function(oneSingle, indexX){ %>
+    <% topics.forEach(function(topic, indexX){ %>
       <ul class=" list-group col-md-6 col-sm-12">
-        <label><%= indexX+1 %>.<%= oneSingle.title %></label>
-        <% for(var choice in oneSingle.option){ %>
-          <% var isChecked = (oneSingle.inputs==choice)?"checked":"" %>
-          <li class="list-group-item"><input type="radio"  name="xz<%= indexX %>" <%= isChecked %> value=<%= choice %>><label >(<%= choice %>)<%= oneSingle.option[choice] %></label></li>
+        <label><%= indexX+1 %>.<%= topic.title %></label>
+        <% for(var choice in topic.option){ %>
+          <% var isChecked = (topic.inputs==choice)?"checked":"" %>
+          <li class="list-group-item radio"><input type="radio"  name="xz<%= indexX %>" <%= isChecked %> value=<%= choice %>><label >(<%= choice %>)<%= topic.option[choice] %></label></li>
         <% } %>
       </ul>
     <% }); %>

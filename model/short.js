@@ -1,15 +1,11 @@
-var Topic = require('./topic.js');
+'use strict';
+var Topic = require('./topic');
 
-function Short (question, req){
-  Topic.call(this, question, req);
+function ShortAnswer (question){
+  Topic.call(this, question);
 }
 
-Short.prototype.getScore = function() {
-  var score = 0;
-  if(this.answer == this.inputs){
-    score += this.score;
-  }
-  return score;
-}
+ShortAnswer.prototype = Object.create(Topic.prototype);
+ShortAnswer.prototype.constructor = ShortAnswer;
 
-module.exports = Short;
+module.exports = ShortAnswer;

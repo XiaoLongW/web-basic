@@ -1,15 +1,11 @@
-var Topic = require('./topic.js');
+'use strict';
+var Topic = require('./topic');
 
-function Judge (question, req){
-  Topic.call(this, question, req);
+function JudgeMent (question){
+  Topic.call(this, question);
 }
 
-Judge.prototype.getScore = function() {
-  var score = 0;
-  if(this.answer == this.inputs){
-    score += this.score;
-  }
-  return score;
-}
+JudgeMent.prototype = Object.create(Topic.prototype);
+JudgeMent.prototype.constructor = JudgeMent;
 
-module.exports = Judge;
+module.exports = JudgeMent;

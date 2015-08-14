@@ -1,8 +1,12 @@
-var Topic = require('./topic.js');
+'use strict';
+var Topic = require('./topic');
 
-function Multi (question, req){
-  Topic.call(this, question, req);
+function Multi (question){
+  Topic.call(this, question);
 }
+
+Multi.prototype = Object.create(Topic.prototype);
+Multi.prototype.constructor = Multi;
 
 Multi.prototype.getScore = function() {
   var score = 0;

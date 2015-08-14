@@ -1,12 +1,12 @@
     <%- include partials/head  %>
     <form action="/" method="post">
-      <%- include partials/message %>
-      <%- include partials/fill-in %>
-      <%- include partials/single  %>
-      <%- include partials/multi  %>
-      <%- include partials/judge %>
-      <%- include partials/short-answer %>
-      <%- include partials/warning %>
+      <%- include('partials/message.ejs', {stuName:studentName,stuClass:studentClass,stuNumber:studentNumber,score:getTotalScore()}) %>
+      <%- include('partials/fill-in.ejs', {topics:getTopic().fillIn} ) %>
+      <%- include('partials/single.ejs', {topics:getTopic().single} )  %>
+      <%- include('partials/multi.ejs', {topics:getTopic().multi} )  %>
+      <%- include('partials/judge.ejs', {topics:getTopic().judge} ) %>
+      <%- include('partials/short-answer.ejs', {topics:getTopic().short} ) %>
+      <%- include('partials/warning') %>
       <div class="container ">
         <input type="submit" class="btn btn-primary btn-lg btn-block btn-danger " value="提交"/>
       </div>

@@ -1,26 +1,26 @@
 <header>
-  <div class="container well panel-primary bg-info" style="background:black">
-    <h1 id="title" class=" text-center  panel-heading" style="background:black">统一建模语言理论测试&nbsp&nbsp&nbsp</h1>
+  <div class="container well panel-primary bg-info" >
+    <h1 id="title" class=" text-center panel-heading" >统一建模语言理论测试&nbsp;&nbsp;&nbsp;</h1>
   </div>
   <div class="container well panel-danger" >
-    <div class="panel-heading" style="background:black"><h2 id="T-title" class="panel-title">基本信息</h2></div>
+    <div class="panel-heading" ><h2 id="T-title" class="panel-title">基本信息</h2></div>
     <ul class="list-inline text-left panel-body row">
       <li class="col-md-3">
         <label class="control-label" for="class">班级</label>
-        <input type="text" class="form-control" id="class" name="class" value=<%= classs %>>
+        <input type="text" class="form-control" id="class" name="class" value="<%= stuClass %>">
       </li>
       <li  class="col-md-3">
         <label  class="control-label" for="name">姓名</label>
-        <input type="text" class="form-control" id="name" name="name" value=<%= names %>>
+        <input type="text" class="form-control" id="name" name="name" value="<%= stuName %>">
       </li>
       <li  class="col-md-3">
-        <label class="control-label" for="id">学号</label>
-        <input type="text" class="form-control" id="id" name="id" value=<%= ids %>>
+        <label class="control-label" for="id"> 学号</label>
+        <input type="text" class="form-control" id="id" name="number" value="<%= stuNumber %>">
       </li>
       <li  class="col-md-3">
         <h3>
-          <label class="control-label">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp成绩</label>
-          <label id="score"  class="text-danger text-right"><%= scores %></label>
+          <label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成绩</label>
+          <label id="score"  class="text-danger text-right"><%= score %></label>
         </h3>
       </li>
     </ul>
