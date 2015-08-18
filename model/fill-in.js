@@ -12,7 +12,7 @@ FillIn.prototype.constructor = FillIn;
 FillIn.prototype.getScore = function() {
   var score = 0;
   if(typeof(this.inputs) == 'string'){
-    if(this.inputs == this.answer){
+    if(this.inputs == this.answer[0]){
       score += this.score;
     }
   }else{
