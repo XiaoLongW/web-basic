@@ -1,5 +1,5 @@
 'use strict';
-var Controller = require('../controll/index-controll');
+var Controller = require('../controller/index-controller');
 var express =require('express');
 var router = express.Router();
 var app = require('../app.js');
