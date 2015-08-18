@@ -4,10 +4,10 @@
     <% topics.forEach(function(topic, indexX){ %>
       <ul class="list-unstyled">
         <label><%= indexX+1 %>.<%= topic.title %></label>
-        <% for(var choice in topic.option){ %>
+        <% topic.item.forEach(function(choice,indexY){ %>
           <% var isChecked = (topic.inputs==choice)?"checked":"" %>
-          <li class="radio"><input type="radio" name="pd<%= indexX %>" <%= isChecked %> value=<%= choice %>><label ><%= topic.option[choice] %></label></li>
-        <% } %>
+          <li class="radio"><input type="radio" name="pd<%= indexX %>" <%= isChecked %> value=<%= choice %>><label ><%= topic.option[indexY] %></label></li>
+        <% }); %>
       </ul>
     <% }); %>
   </div>

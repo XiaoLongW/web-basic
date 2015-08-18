@@ -4,10 +4,10 @@
     <% topics.forEach(function(topic, indexX){ %>
       <ul class=" list-group col-md-6 col-sm-12">
         <label><%= indexX+1 %>.<%= topic.title %></label>
-        <% for(var choice in topic.option){ %>
+        <% topic.item.forEach(function(choice,indexY){  %>
           <% var isChecked = (topic.inputs==choice)?"checked":"" %>
-          <li class="list-group-item radio"><input type="radio"  name="xz<%= indexX %>" <%= isChecked %> value=<%= choice %>><label >(<%= choice %>)<%= topic.option[choice] %></label></li>
-        <% } %>
+          <li class="list-group-item radio"><input type="radio"  name="xz<%= indexX %>" <%= isChecked %> value=<%= choice %>><label >(<%= choice %>)<%= topic.option[indexY] %></label></li>
+        <% }) %>
       </ul>
     <% }); %>
   </div>
